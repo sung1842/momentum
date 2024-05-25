@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<!-- cdn으로 react 링크 열기 -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<!--cdn으로 babel 링크 열기 : jsx타입을 감지하여 실시간 반응-->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    const root = document.getElementById("root");
+    //JSX로 작성
+    const Title = () => (<h3 id="title" onMouseEnter = {() => console.log("mouse enter")}>Hello I'm a span</h3>);
+    // const h3 = React.createElement(
+    //     "h3",
+    //     {
+    //         id: "title",
+    //         onMouseEnter: () => console.log("mouse enter")
+    //     },
+    //     "Hello I'm a span"
+    // );
+    const Button = () => (<button style={{
+        backgroundColor: "tomato",
+    }} onClick={() => console.log('im clicked')}>Click me</button>);
+    // const btn = React.createElement("button", {
+    //     onClick: () => console.log('im clicked'),
+    // }, "Click me");
+    const Container = 
+        <div>
+            <Title/> <Button/>
+        </div>
+    ReactDOM.render(Container, root);
+</script>
+</html>
